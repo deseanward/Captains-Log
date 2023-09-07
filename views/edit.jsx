@@ -2,12 +2,12 @@ import DefaultLayout from "./layout/layout";
 
 const React = require("react");
 
-const New = ({ logs }) => {
+const Edit = ({ log }) => {
   return (
     <DefaultLayout>
-      <h1 className='font-bold text-3xl p-4'>Create New Log</h1>
+      <h1 className='font-bold text-3xl p-4'>Edit Log</h1>
       <form
-        action='/api/logs'
+        action={`/api/logs/${log._id}?_method=PUT`}
         method='post'
         className='border-2 p-4 rounded w-[600px]'
       >
@@ -17,6 +17,7 @@ const New = ({ logs }) => {
             name='title'
             className='border-2 border-gray-300 focus:border-gray-500 outline-none rounded w-full p-2'
             type='text'
+            value={log.title}
           />
         </section>
 
@@ -26,13 +27,24 @@ const New = ({ logs }) => {
             name='entry'
             className='border-2 border-gray-300 focus:border-gray-500 outline-none rounded w-full p-2'
             type='text'
+            value={log.entry}
+          />
+        </section>
+
+        <section className='flex items-center gap-2 mb-8'>
+          <h2 className='font-bold text-xl'>Ship Broken?</h2>
+          <input
+            name='shipIsBroken'
+            className='border-2 border-gray-300 focus:border-gray-500 outline-none rounded w-4 p-2 cursor-pointer'
+            type='checkbox'
+            defaultChecked={log.shipIsBroken}
           />
         </section>
 
         <section className='mb-4'>
           <input
             name='submit'
-            value='Submit'
+            value='Update'
             className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
             type='submit'
           />
@@ -42,4 +54,4 @@ const New = ({ logs }) => {
   );
 };
 
-export default New;
+export default Edit;
