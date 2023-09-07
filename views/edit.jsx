@@ -23,10 +23,10 @@ const Edit = ({ log }) => {
 
         <section className='mb-4'>
           <h2 className='font-bold text-xl'>Entry</h2>
-          <input
+          <textarea
             name='entry'
-            className='border-2 border-gray-300 focus:border-gray-500 outline-none rounded w-full p-2'
-            type='text'
+            className='resize-none border-2 border-gray-300 focus:border-gray-500 outline-none rounded w-full p-2'
+            rows={5}
             value={log.entry}
           />
         </section>
@@ -41,13 +41,21 @@ const Edit = ({ log }) => {
           />
         </section>
 
-        <section className='mb-4'>
+        <section className='flex gap-2'>
           <input
             name='submit'
             value='Update'
             className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
             type='submit'
           />
+
+          <a href={`/logs/${log._id}`}>
+            <input
+              type='button'
+              value='Back'
+              className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+            />
+          </a>
         </section>
       </form>
     </DefaultLayout>

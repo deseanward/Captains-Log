@@ -29,13 +29,21 @@ const New = ({ logs }) => {
           />
         </section>
 
-        <section className='mb-4'>
+        <section className='flex gap-2'>
           <input
             name='submit'
             value='Submit'
             className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
             type='submit'
           />
+
+          <a href='/logs'>
+            <input
+              type='button'
+              value='Back'
+              className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+            />
+          </a>
         </section>
       </form>
     </DefaultLayout>

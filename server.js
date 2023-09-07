@@ -4,6 +4,7 @@ require("dotenv").config();
 const connectDB = require("./utils/connectDB");
 const Log = require("./models/log");
 const jsxEngine = require("jsx-view-engine");
+const methodOverride = require("method-override");
 
 // App Variables
 const app = express();
@@ -79,7 +80,7 @@ app.post("/api/logs", async (req, res) => {
 });
 
 // Update the log and put to the database
-app.post("/api/logs/:id", async (req, res) => {
+app.put("/api/logs/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { shipIsBroken } = req.body;
@@ -93,6 +94,18 @@ app.post("/api/logs/:id", async (req, res) => {
     res.redirect(`/logs/${id}`);
   } catch (error) {
     console.log("An error occured updating the log: ", error);
+  }
+});
+
+// Delete the log from the database
+app.delete("/api/logs/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedLog = await Log.findByIdAndDelete(id);
+
+    res.redirect("/logs");
+  } catch (error) {
+    console.log("An error occured deleting the log: ", error);
   }
 });
 

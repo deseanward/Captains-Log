@@ -5,6 +5,15 @@ const React = require("react");
 const Index = ({ logs }) => {
   return (
     <DefaultLayout>
+      <nav className='mb-4'>
+        <a
+          href='/logs/new'
+          className='border-2 rounded-lg p-2 font-bold hover:bg-black hover:text-white'
+        >
+          Create New Log
+        </a>
+      </nav>
+      <hr />
       <div>
         <h2 className='font-bold text-2xl mb-4'>Title</h2>
         <section className='flex gap-8'>

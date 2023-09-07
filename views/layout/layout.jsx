@@ -10,6 +10,8 @@ function DefaultLayout({ title = null, children }) {
       </head>
 
       <body className='flex flex-col items-center'>
+      <h1 className='font-bold text-3xl text-[#09507C] mb-8'>The Captain's Log</h1>
+
         <h1>{title}</h1>
         {children}
       </body>
