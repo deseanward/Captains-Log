@@ -25,6 +25,7 @@ app.use(express.static("public"));
 // ***** VIEW ROUTES ***** //
 //* ---------------------------------------------
 // ---- Index - View Log ---- //
+app.get("/", controller.goHome);
 app.get("/logs", controller.getLogs);
 
 // ----

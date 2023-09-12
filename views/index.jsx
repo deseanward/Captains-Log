@@ -26,6 +26,10 @@ const Index = ({ logs }) => {
                 >
                   <p className='border-b-2 pb-2 mb-4 font-bold'>
                     <a href={`/logs/${log._id}`}>{log.title}</a>
+                    <span className='text-sm font-normal text-[maroon]'>
+                      {" "}
+                      {log.createdAt < log.updatedAt ? "- (updated)" : null}
+                    </span>
                   </p>
                   <p className='mb-4'>{log.entry}</p>
                   <p className='mb-4'>

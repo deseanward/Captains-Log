@@ -1,4 +1,4 @@
-// 'use client'
+// "use client";
 import React from "react";
 
 function DefaultLayout({ title = null, children }) {
@@ -11,7 +11,7 @@ function DefaultLayout({ title = null, children }) {
 
       <body className='flex flex-col items-center'>
         <h1 className='font-bold text-3xl text-[#09507C] mb-8'>
-          <a href='/logs'>The Captain's Log</a>
+          <a href='/'>The Captain's Log</a>
         </h1>
 
         <div className='w-[1100px]'>

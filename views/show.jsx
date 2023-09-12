@@ -10,9 +10,15 @@ const Show = ({ log }) => {
       <div className='flex flex-wrap flex-col items-center'>
         <div className='w-[600px]'>
           <section className='self-start'>
-            <h2 className='font-bold text-2xl'>{log.title}</h2>
+            <h2 className='font-bold text-2xl'>
+              {log.title}{" "}
+              <span className='text-sm font-normal text-[maroon]'>
+                {" "}
+                {log.createdAt < log.updatedAt ? "- (updated)" : null}
+              </span>
+            </h2>
             <p className='text-sm mb-4'>
-              {moment(log.createdAt.toUTCString()).format(
+              {moment(log.updatedAt.toUTCString()).format(
                 "MMMM Do YYYY, h:mm:ss a"
               )}
             </p>

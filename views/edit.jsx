@@ -1,12 +1,19 @@
-import DefaultLayout from "./layout/layout";
-
 const React = require("react");
+
+import moment from "moment";
+import DefaultLayout from "./layout/layout";
 
 const Edit = ({ log }) => {
   return (
     <DefaultLayout>
       <div className='w-fit m-auto flex flex-col items-center'>
-        <h2 className='font-bold text-2xl self-start pb-4'>Edit Log</h2>
+        <h2 className='font-bold text-2xl self-start pb-4'>
+          Edit Log{" "}
+          <span className='text-sm font-normal text-[maroon]'>
+            {" "}
+            updating - {moment().format("MMMM Do YYYY, h:mm:ss a")}
+          </span>
+        </h2>
         <form
           action={`/api/logs/${log._id}?_method=PUT`}
           method='post'
