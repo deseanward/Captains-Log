@@ -1,4 +1,4 @@
-import DefaultLayout from "./layout/layout";
+import DefaultLayout from "./layout/Layout";
 
 const React = require("react");
 

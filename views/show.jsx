@@ -2,7 +2,7 @@ const React = require("react");
 
 const moment = require("moment");
 
-import DefaultLayout from "./layout/layout";
+import DefaultLayout from "./layout/Layout";
 
 const Show = ({ log }) => {
   return (
