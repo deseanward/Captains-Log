@@ -35,7 +35,7 @@ const New = ({ logs }) => {
             <input
               name='submit'
               value='Create'
-              className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+              className='shadow shadow-[#09507C] focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
               type='submit'
             />
 
@@ -43,7 +43,7 @@ const New = ({ logs }) => {
               <input
                 type='button'
                 value='Back'
-                className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+                className='shadow shadow-[#09507C] cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
               />
             </a>
           </section>
