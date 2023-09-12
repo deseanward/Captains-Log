@@ -5,6 +5,7 @@ const connectDB = require("./utils/connectDB");
 const Log = require("./models/log");
 const jsxEngine = require("jsx-view-engine");
 const methodOverride = require("method-override");
+const controller = require("./controllers/logs");
 
 // App Variables
 const app = express();
@@ -20,94 +21,35 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+//* ---------------------------------------------
 // ***** VIEW ROUTES ***** //
+//* ---------------------------------------------
 // ---- Index - View Log ---- //
-app.get("/logs", async (req, res) => {
-  const logs = await Log.find({});
-  console.log(logs);
-
-  try {
-    res.render("Index", {
-      logs: logs,
-    });
-  } catch (error) {
-    console.log("An error occured: ", error);
-  }
-});
+app.get("/logs", controller.getLogs);
 
 // ----
 // ----- Create New Log ----- //
-app.get("/logs/new", (req, res) => {
-  res.render("New", {});
-});
+app.get("/logs/new", controller.newLog);
 
 // ----
 // ----- Show Log ----- //
-app.get("/logs/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const log = await Log.findById(id);
-
-    res.render("Show", { log });
-  } catch (error) {
-    console.log("An error occured fetching the log: ", error);
-  }
-});
+app.get("/logs/:id", controller.displayLog);
 
 // ----
 // ----- Display Edit Log Page ----- //
-app.get("/logs/:id/edit", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const log = await Log.findById(id);
+app.get("/logs/:id/edit", controller.editLog);
 
-    res.render("Edit", { log });
-  } catch (error) {
-    console.log("An error occured fetching the log: ", error);
-  }
-});
-
+//* ---------------------------------------------
 // ***** API ROUTES ***** //
+//* ---------------------------------------------
 // Post the Log to the database
-app.post("/api/logs", async (req, res) => {
-  try {
-    const createdLog = await Log.create(req.body);
-
-    res.redirect("/logs");
-  } catch (error) {
-    console.log("There was an error creating the log: ", error);
-  }
-});
+app.post("/api/logs", controller.createLog);
 
 // Update the log and put to the database
-app.put("/api/logs/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { shipIsBroken } = req.body;
-
-    shipIsBroken === "on"
-      ? (req.body.shipIsBroken = true)
-      : (req.body.shipIsBroken = false);
-
-    const updatedLog = await Log.findByIdAndUpdate(id, req.body, { new: true });
-
-    res.redirect(`/logs/${id}`);
-  } catch (error) {
-    console.log("An error occured updating the log: ", error);
-  }
-});
+app.put("/api/logs/:id", controller.updateLog);
 
 // Delete the log from the database
-app.delete("/api/logs/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deletedLog = await Log.findByIdAndDelete(id);
-
-    res.redirect("/logs");
-  } catch (error) {
-    console.log("An error occured deleting the log: ", error);
-  }
-});
+app.delete("/api/logs/:id", controller.deleteLog);
 
 // ---- Verify Connections ---- //
 connectDB();

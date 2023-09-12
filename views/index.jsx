@@ -15,22 +15,27 @@ const Index = ({ logs }) => {
       </nav>
       <hr />
       <div>
-        <h2 className='font-bold text-2xl mb-4'>Title</h2>
-        <section className='flex gap-8'>
+        <h2 className='font-bold text-2xl mb-4'>Logs</h2>
+        <section className='flex flex-wrap gap-8'>
           {logs.length ? (
             logs.map((log) => {
               return (
                 <div
                   key={log._id}
-                  className=' w-[20em] border-2 border-grey-500 rounded-lg p-4'
+                  className='flex flex-col w-[20em] border-2 border-grey-500 rounded-lg p-4'
                 >
-                  <p className='mb-4'>
+                  <p className='border-b-2 pb-2 mb-4 font-bold'>
                     <a href={`/logs/${log._id}`}>{log.title}</a>
                   </p>
                   <p className='mb-4'>{log.entry}</p>
-                  <p>Ship Broken? {log.shipIsBroken ? "Yes" : "No"}</p>
+                  <p className='mb-4'>
+                    Ship Broken? {log.shipIsBroken ? "Yes" : "No"}
+                  </p>
 
-                  <a href={`/logs/${log._id}`}>
+                  <a
+                    href={`/logs/${log._id}`}
+                    className='mt-auto  border-t-2 pt-2'
+                  >
                     <input
                       type='button'
                       value='View'
