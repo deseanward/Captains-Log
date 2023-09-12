@@ -5,15 +5,6 @@ const React = require("react");
 const Index = ({ logs }) => {
   return (
     <DefaultLayout>
-      <nav className='mb-4'>
-        <a
-          href='/logs/new'
-          className='border-2 rounded-lg p-2 font-bold hover:bg-black hover:text-white'
-        >
-          Create New Log
-        </a>
-      </nav>
-      <hr />
       <div>
         <h2 className='font-bold text-2xl mb-4'>Logs</h2>
         <section className='flex flex-wrap gap-8'>
@@ -22,7 +13,7 @@ const Index = ({ logs }) => {
               return (
                 <div
                   key={log._id}
-                  className='flex flex-col w-[20em] border-2 border-grey-500 rounded-lg p-4'
+                  className='shadow-md shadow-[#09507C] flex flex-col w-[20em] rounded-lg p-4'
                 >
                   <p className='border-b-2 pb-2 mb-4 font-bold'>
                     <a href={`/logs/${log._id}`}>{log.title}</a>
@@ -43,7 +34,7 @@ const Index = ({ logs }) => {
                     <input
                       type='button'
                       value='View'
-                      className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+                      className='shadow shadow-[#09507C]  focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
                     />
                   </a>
                 </div>

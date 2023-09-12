@@ -6,18 +6,18 @@ import DefaultLayout from "./layout/layout";
 const Edit = ({ log }) => {
   return (
     <DefaultLayout>
-      <div className='w-fit m-auto flex flex-col items-center'>
+      <div className='w-fit m-auto flex flex-col items-center shadow-lg shadow-[#09507C] p-4'>
         <h2 className='font-bold text-2xl self-start pb-4'>
           Edit Log{" "}
           <span className='text-sm font-normal text-[maroon]'>
             {" "}
-            updating - {moment().format("MMMM Do YYYY, h:mm:ss a")}
+            (updating - {moment().format("MMMM Do YYYY, h:mm:ss a")})
           </span>
         </h2>
         <form
           action={`/api/logs/${log._id}?_method=PUT`}
           method='post'
-          className='border-2 p-4 rounded w-[600px]'
+          className='p-4 rounded w-[600px]'
         >
           <section className='mb-4'>
             <h2 className='font-bold'>Title</h2>
@@ -39,7 +39,7 @@ const Edit = ({ log }) => {
             />
           </section>
 
-          <section className='flex items-center gap-2 mb-8'>
+          <section className='flex items-center gap-2 mb-4'>
             <h2 className='font-bold'>Ship Broken?</h2>
             <input
               name='shipIsBroken'
@@ -53,7 +53,7 @@ const Edit = ({ log }) => {
             <input
               name='submit'
               value='Update'
-              className='border-2 border-gray-300 focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+              className='shadow shadow-[#09507C]  focus:border-gray-500 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
               type='submit'
             />
 
@@ -61,7 +61,7 @@ const Edit = ({ log }) => {
               <input
                 type='button'
                 value='Back'
-                className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
+                className='shadow shadow-[#09507C]  cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
               />
             </a>
           </section>

@@ -5,12 +5,12 @@ const React = require("react");
 const New = ({ logs }) => {
   return (
     <DefaultLayout>
-      <div className='w-fit m-auto flex flex-col items-center'>
+      <div className='w-fit m-auto flex flex-col items-center shadow-lg shadow-[#09507C] p-4'>
         <h2 className='font-bold text-2xl self-start pb-4'>Create New Log</h2>
         <form
           action='/api/logs'
           method='post'
-          className='border-2 p-4 rounded w-[600px]'
+          className='p-4 rounded w-[600px]'
         >
           <section className='mb-4'>
             <h2 className='font-bold'>Title</h2>

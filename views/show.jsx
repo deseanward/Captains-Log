@@ -8,7 +8,7 @@ const Show = ({ log }) => {
   return (
     <DefaultLayout>
       <div className='flex flex-wrap flex-col items-center'>
-        <div className='w-[600px]'>
+        <div className='w-[600px] shadow-lg shadow-[#09507C] p-4'>
           <section className='self-start'>
             <h2 className='font-bold text-2xl'>
               {log.title}{" "}
@@ -25,7 +25,7 @@ const Show = ({ log }) => {
           </section>
           <section className='flex gap-8'>
             {log ? (
-              <div className='w-full flex flex-col gap-8 w-[20em] border-2 border-grey-500 rounded-lg p-4'>
+              <div className='w-full flex flex-col gap-8 w-[20em] border-t-2 border-grey-500 p-4'>
                 <section>
                   <p className='mb-4'>{log.entry}</p>
                   <p>Ship Broken? {log.shipIsBroken ? "Yes" : "No"}</p>
@@ -36,7 +36,7 @@ const Show = ({ log }) => {
                     <input
                       type='button'
                       value='Back'
-                      className='border-2 border-gray-300
+                      className='shadow shadow-[#09507C] 
                       cursor-pointer outline-none hover:bg-black hover:text-white font-bold rounded p-2'
                     />
                   </a>
@@ -45,7 +45,7 @@ const Show = ({ log }) => {
                     <input
                       type='button'
                       value='Edit'
-                      className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-green-900 hover:text-white font-bold rounded p-2 mr-2'
+                      className='shadow shadow-[#09507C]  cursor-pointer outline-none hover:bg-green-900 hover:text-white font-bold rounded p-2 mr-2'
                     />
                   </a>
 
@@ -56,7 +56,7 @@ const Show = ({ log }) => {
                     <input
                       type='submit'
                       value='Delete'
-                      className='border-2 border-gray-300 cursor-pointer outline-none hover:bg-red-800 hover:text-white font-bold rounded p-2 mr-2'
+                      className='shadow shadow-[#09507C]  cursor-pointer outline-none hover:bg-red-800 hover:text-white font-bold rounded p-2 mr-2'
                     />
                   </form>
                 </section>
